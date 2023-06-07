@@ -42,7 +42,11 @@ for (let i = 1; i <= 10; i++) {
 console.log("Exo5: \n" + result_exo5);
 
 // Exo6 : Calculate 10!
-let result_exo6 = 0;
+let result_exo6 = 1;
+for (let i = 1; i <= 10; i++) {
+    result_exo6 *= i;
+}
+console.log("Exo6: \n" + result_exo6);
 
 // Exo7 : Calculate the sum of even numbers greater than 10 and less than 30.
 let result_exo7 = 0;
@@ -123,32 +127,134 @@ console.log("Exo16: \n" + Exo_16(0));
 
 
 // Exo20 : Rotate an array to the left 1 position.
+let result_exo20 = [];
+let t_exo20 = [5, 7, 3, 9, 1];
+result_exo20.push(t_exo20[t_exo20.length-1]);
+for (let i = 0; i < t_exo20.length-1; i++) {
+    result_exo20.push(t_exo20[i]);
+}
+console.log("Exo20: \n" + result_exo20);
 
-// Exo21 :  Reverse an array.
+// Exo21 : Rotate an array to the right 1 position.
+let result_exo21 = [];
+let t_exo21 = [5, 7, 3, 9, 1];
+for (let i = 1; i < t_exo21.length; i++) {
+    result_exo21.push(t_exo21[i]);
+    if (i == t_exo21.length-1) {
+        result_exo21.push(t_exo21[0]);
+    }
+}
+console.log("Exo21: \n" + result_exo21);
+
+// Exo22 : Reverse an array.
+let result_exo22 = [];
+let t_exo22 = [5, 7, 3, 9, 1];
+for (let i = t_exo22.length-1; i >= 0; i--) {
+    result_exo22.push(t_exo22[i]);
+}
+console.log("Exo22: \n" + result_exo22);
+
+// Exo23 : Reverse a string.
+let result_exo23 = "";
+let str_exo23 = "12345";
+for (let i = str_exo23.length-1; i >= 0; i--) {
+    result_exo23 += str_exo23[i];
+}
+console.log("Exo23: \n" + result_exo23);
+
+// Exo24 : Create a function that will merge two arrays and return the result as a new array.
+function Exo_24 (first_tab, second_tab) {
+    let t_exo24 = [];
+    t_exo24.push(first_tab, second_tab);
+    return t_exo24;
+}
+console.log("Exo24: \n" + Exo_24([1, 2, 3], [4, 5, 6]));
+
+// Exo25 : Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both.
+function Exo_25 (first_tab, second_tab) {
+    let t_exo25 = [];
+    for (let i = 0; i < first_tab.length; i++) {
+        if (!second_tab.includes(first_tab[i])) {
+            t_exo25.push(first_tab[i]);
+        }
+    }
+
+    for (let i = 0; i < second_tab.length; i++) {
+        if (!first_tab.includes(second_tab[i])) {
+            t_exo25.push(second_tab[i]);
+        }
+    }
+    return t_exo25;
+}
+console.log("Exo25: \n" + Exo_25([1, 2, 3, 4, 5], [1, 0, 4, 5, 6]));
+
+// Exo26 : Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second.
+function Exo_26 (first_tab, second_tab) {
+    let t_exo26 = [];
+    for (let i = 0; i < first_tab.length; i++) {
+        if (!second_tab.includes(first_tab[i])) {
+            t_exo26.push(first_tab[i]);
+        }
+    }
+    return t_exo26;
+}
+console.log("Exo26: \n" + Exo_26([1, 2, 3, 4, 5], [1, 0, 4, 5, 6]));
 
 
-// Exo22 :  Reverse a string.
+// Exo27 : Create a function that will receive an array of numbers as argument and will return a new array with distinct elements.
+function Exo_27 (tab) {
+    let t_exo27 = [];
+    let counter_exo27 = 0;
+    for (let i = 1; i < tab.length; i++) {
+        if (tab[counter_exo27] != tab[i]) {
+            t_exo27.push(tab[i]);
+        } else if (i == tab.length-1 && counter_exo27 < tab.length-1) {
+            i=0;
+            counter_exo27++;
+        }
+
+        // while (tab[counter_exo27] == tab[i]) {
+            
+        // }
+    }
+    return t_exo27;
+}
+console.log("Exo27: \n" + Exo_27([1, 5, 9, 7, 4, 2, 7, 6, 2]));
+
+// Exo28 : Calculate the sum of first 100 prime numbers and return them in an array.
 
 
-// Exo23 :  Create a function that will merge two arrays and return the result as a new array.
+// Exo29 : Print the distance between the first 100 prime numbers.
 
 
-// Exo24 :  Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both.
+// Exo30 : Create a function that will add two positive numbers of indefinite size. The numbers are received as strings and the result should be also provided as string.
 
 
-// Exo25 :  Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second.
-// Exo26 :  Coding challenges – Part I codeguppy.com.
-// Exo27 :  Create a function that will receive an array of numbers as argument and will return a new array with distinct elements.
-// Exo28 :  Calculate the sum of first 100 prime numbers and return them in an array.
-// Exo29 :  Print the distance between the first 100 prime numbers.
-// Exo30 :  Create a function that will add two positive numbers of indefinite size. The numbers are received as strings and the result should be also provided as string.
-// Exo31 :  Create a function that will return the number of words in a text.
-// Exo32 :  Create a function that will capitalize the first letter of each word in a text.
-// Exo33 :  Calculate the sum of numbers received in a comma delimited string.
-// Exo34 :  Create a function that returns an array with words inside a text.
-// Exo35 :  Create a function to convert a CSV text to a “bi-dimensional” array.
-// Exo36 :  Create a function that converts a string to an array of characters.
-// Exo37 :  Create a function that will convert a string in an array containing the ASCII codes of each character.
-// Exo38 :  Create a function that will convert an array containing ASCII codes in a string.
-// Exo39 :  Implement the Caesar cypher.
-// Exo40 :  Implement the bubble sort algorithm for an array of numbers.
+// Exo31 : Create a function that will return the number of words in a text.
+
+
+// Exo32 : Create a function that will capitalize the first letter of each word in a text.
+
+
+// Exo33 : Calculate the sum of numbers received in a comma delimited string.
+
+
+// Exo34 : Create a function that returns an array with words inside a text.
+
+
+// Exo35 : Create a function to convert a CSV text to a “bi-dimensional” array.
+
+
+// Exo36 : Create a function that converts a string to an array of characters.
+
+
+// Exo37 : Create a function that will convert a string in an array containing the ASCII codes of each character.
+
+
+// Exo38 : Create a function that will convert an array containing ASCII codes in a string.
+
+
+// Exo39 : Implement the Caesar cypher.
+
+
+// Exo40 : Implement the bubble sort algorithm for an array of numbers.
