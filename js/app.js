@@ -290,15 +290,58 @@ console.log("Exo38: \n" + Exo_38(["98", "111", "110", "106", "111", "117", "114"
 
 
 // Exo40 : Implement the bubble sort algorithm for an array of numbers.
-let t_exo40 = [8, 1, 74, 3, 12];
-let tmp_exo40 = t_exo40[0];
-for (let i = 1; i < t_exo40.length; i++) {
-    if (tmp_exo40 > t_exo40[i]) {
-        console.log(tmp_exo40);
-        t_exo40[i] = tmp_exo40;
-        tmp_exo40 = t_exo40[i];
-        console.log(tmp_exo40);
-        t_exo40[i] = tmp_exo40;
-    }
+let test = [8, 1, 74, 3, 12];
+let index_inf_test = test[0];
+let tmp_test;
+if (test[0] > test[1]) {
+    tmp_test = test[1];
+    test[1] = index_inf_test;
+    test[0] = tmp_test;
+} else {
+    
 }
+console.log("TEST " + test);
+
+
+let t_exo40 = [8, 1, 74, 3, 12];
+let y_exo40 = 0;
+let end_exo40 = t_exo40.length-1;
+let tmp_exo40 = t_exo40[end_exo40];
+console.log(tmp_exo40);
+let best_exo40 = t_exo40[y_exo40];
+
+for (let i = 1; i < end_exo40; i++) {
+    if (best_exo40 < t_exo40[i]) {
+        // y_exo40 = i;
+        best_exo40 = t_exo40[i];
+        t_exo40[end_exo40] = best_exo40;
+        t_exo40[i] = tmp_exo40;
+        y_exo40++;
+        tmp_exo40 = t_exo40[y_exo40];
+        console.log(best_exo40);
+    } else {
+        console.log(false);
+    }
+    console.log(best_exo40);
+}
+// let y_exo40 = 0;
+// let index_inf_exo40 = t_exo40[y_exo40];
+// let tmp_exo40;
+// for (let i = 1; i < t_exo40.length; i++) {
+//     if (t_exo40[i-1] > t_exo40[i]) {
+//         console.log("i " + i);
+//         console.log(i-1);
+//         tmp_exo40 = t_exo40[i];
+//         t_exo40[i] = index_inf_exo40;
+//         t_exo40[i-1] = tmp_exo40;
+//         console.log(t_exo40);
+//     } else {
+//         console.log("i " + i);
+//         console.log(i-1);
+//         y_exo40 ++;
+//         tmp_exo40 = t_exo40[i+1];
+//         t_exo40[i] = index_inf_exo40;
+//         t_exo40[i-1] = tmp_exo40;
+//     }
+// }
 console.log("Exo40: \n" + t_exo40);
