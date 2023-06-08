@@ -204,18 +204,13 @@ console.log("Exo26: \n" + Exo_26([1, 2, 3, 4, 5], [1, 0, 4, 5, 6]));
 // Exo27 : Create a function that will receive an array of numbers as argument and will return a new array with distinct elements.
 function Exo_27 (tab) {
     let t_exo27 = [];
-    let counter_exo27 = 0;
-    for (let i = 1; i < tab.length; i++) {
-        if (tab[counter_exo27] != tab[i]) {
-            t_exo27.push(tab[i]);
-        } else if (i == tab.length-1 && counter_exo27 < tab.length-1) {
-            i=0;
-            counter_exo27++;
+    for (let i = 0; i < tab.length; i++) {
+        for (let y = i+1; y < tab.length; y++) {
+            if (tab[i] == tab[y]) {
+                t_exo27.push(tab[i]);
+                break;
+            }
         }
-
-        // while (tab[counter_exo27] == tab[i]) {
-            
-        // }
     }
     return t_exo27;
 }
@@ -231,30 +226,79 @@ console.log("Exo27: \n" + Exo_27([1, 5, 9, 7, 4, 2, 7, 6, 2]));
 
 
 // Exo31 : Create a function that will return the number of words in a text.
-
+function Exo_31 (str) {
+    let result_exo31 = 0;
+    for (let i = 0; i < str.length; i++) {
+        result_exo31++;
+    }
+    return result_exo31;
+}
+console.log("Exo31: \n" + Exo_31("bonjour"));
 
 // Exo32 : Create a function that will capitalize the first letter of each word in a text.
 
 
 // Exo33 : Calculate the sum of numbers received in a comma delimited string.
-
+let result_exo33 = 0;
+let str_exo33 = "152";
+for (let i = 0; i < str_exo33.length; i++) {
+    result_exo33 += parseInt(str_exo33[i]);
+}
+console.log("Exo33: \n" + result_exo33);
 
 // Exo34 : Create a function that returns an array with words inside a text.
-
+function Exo_34 (str) {
+    return str.split("");
+}
+console.log("Exo34: \n" + Exo_34("bonjour"));
 
 // Exo35 : Create a function to convert a CSV text to a “bi-dimensional” array.
-
+// function Exo_35 (params) {
+    
+// }
 
 // Exo36 : Create a function that converts a string to an array of characters.
-
+function Exo_36 (t) {
+    for (let i = 0; i < t.length; i++) {
+        t[i] = t[i].split("");
+    }
+    return t;
+}
+console.log("Exo36: \n" + Exo_36(["bonjour", "hello"]));
 
 // Exo37 : Create a function that will convert a string in an array containing the ASCII codes of each character.
-
+function Exo_37 (str) {
+    let result_exo37 = str.split("");
+    for (let i = 0; i < str.length; i++) {
+        result_exo37[i] = result_exo37[i].charCodeAt();
+    }
+    return result_exo37;
+}
+console.log("Exo37: \n" + Exo_37("bonjour"));
 
 // Exo38 : Create a function that will convert an array containing ASCII codes in a string.
-
+function Exo_38 (t) {
+    let result_exo38 = "";
+    for (let i = 0; i < t.length; i++) {
+        result_exo38 += String.fromCodePoint(t[i]);
+    }
+    return result_exo38;
+}
+console.log("Exo38: \n" + Exo_38(["98", "111", "110", "106", "111", "117", "114"]));
 
 // Exo39 : Implement the Caesar cypher.
 
 
 // Exo40 : Implement the bubble sort algorithm for an array of numbers.
+let t_exo40 = [8, 1, 74, 3, 12];
+let tmp_exo40 = t_exo40[0];
+for (let i = 1; i < t_exo40.length; i++) {
+    if (tmp_exo40 > t_exo40[i]) {
+        console.log(tmp_exo40);
+        t_exo40[i] = tmp_exo40;
+        tmp_exo40 = t_exo40[i];
+        console.log(tmp_exo40);
+        t_exo40[i] = tmp_exo40;
+    }
+}
+console.log("Exo40: \n" + t_exo40);
