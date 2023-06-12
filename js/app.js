@@ -290,58 +290,102 @@ console.log("Exo38: \n" + Exo_38(["98", "111", "110", "106", "111", "117", "114"
 
 
 // Exo40 : Implement the bubble sort algorithm for an array of numbers.
-let test = [8, 1, 74, 3, 12];
-let index_inf_test = test[0];
-let tmp_test;
-if (test[0] > test[1]) {
-    tmp_test = test[1];
-    test[1] = index_inf_test;
-    test[0] = tmp_test;
-} else {
-    
-}
-console.log("TEST " + test);
-
-
 let t_exo40 = [8, 1, 74, 3, 12];
-let y_exo40 = 0;
-let end_exo40 = t_exo40.length-1;
-let tmp_exo40 = t_exo40[end_exo40];
-console.log(tmp_exo40);
-let best_exo40 = t_exo40[y_exo40];
-
-for (let i = 1; i < end_exo40; i++) {
-    if (best_exo40 < t_exo40[i]) {
-        // y_exo40 = i;
-        best_exo40 = t_exo40[i];
-        t_exo40[end_exo40] = best_exo40;
-        t_exo40[i] = tmp_exo40;
-        y_exo40++;
-        tmp_exo40 = t_exo40[y_exo40];
-        console.log(best_exo40);
-    } else {
-        console.log(false);
+for (let i = t_exo40.length-1; i > 0; i--) {
+    for (let j = 0; j < i; j++) {
+        if (t_exo40[j + 1] < t_exo40[j]) {
+          let temp = t_exo40[j + 1];
+          t_exo40[j + 1] = t_exo40[j];
+          t_exo40[j] = temp;
+        }
     }
-    console.log(best_exo40);
 }
-// let y_exo40 = 0;
-// let index_inf_exo40 = t_exo40[y_exo40];
-// let tmp_exo40;
-// for (let i = 1; i < t_exo40.length; i++) {
-//     if (t_exo40[i-1] > t_exo40[i]) {
-//         console.log("i " + i);
-//         console.log(i-1);
-//         tmp_exo40 = t_exo40[i];
-//         t_exo40[i] = index_inf_exo40;
-//         t_exo40[i-1] = tmp_exo40;
-//         console.log(t_exo40);
-//     } else {
-//         console.log("i " + i);
-//         console.log(i-1);
-//         y_exo40 ++;
-//         tmp_exo40 = t_exo40[i+1];
-//         t_exo40[i] = index_inf_exo40;
-//         t_exo40[i-1] = tmp_exo40;
-//     }
-// }
 console.log("Exo40: \n" + t_exo40);
+
+// Exo41 : Create a function to calculate the distance between two points defined by their x, y coordinates.
+function Exo_41 (x, y) {
+    if (x > y) {
+        return x - y;
+    } else {
+        return y - x;
+    }
+}
+console.log("Exo41: \n" + Exo_41(0, 100));
+
+// Exo42 : Create a function that will return a Boolean value indicating if two circles defined by center coordinates and radius are intersecting.
+
+
+// Exo43 : Create a function that will receive a bi-dimensional array as argument and anumber and will extract as a unidimensional array the column specified by the number.
+function Exo_43 (t, num) {
+    for (let i = 0; i < t.length; i++) {
+        for (let j = 0; j < t[i].length; j++) {
+            if (j == num) {
+                t[i][j] = "";
+            }
+        }
+    }
+    return t;
+}
+console.log("Exo43: \n" + Exo_43([[1, 2, 3], [4, 5, 6]], 2));
+
+// Exo44 : Create a function that will convert a string containing a binary number into a number.
+
+
+// Exo45 : Create a function to calculate the sum of all the numbers in a jagged array (contains numbers or other arrays of numbers on an unlimited number of levels).
+
+
+// Exo46 : Find the maximum number in a jagged array of numbers or array of numbers.
+function Exo_46 (t) {
+    let best_exo46 = t[0];
+    for (let i = 1; i < t.length; i++) {
+        if (t[i] > best_exo46) {
+            best_exo46 = t[i];
+        }
+    }
+    return best_exo46;
+}
+console.log("Exo46: \n" + Exo_46([1, 8, 3, 9, 4]));
+
+// Exo47 : Deep copy a jagged array with numbers or other arrays in a new array.
+
+
+// Exo48 : Create a function to return the longest word in a string.
+function Exo_48 (str) {
+    let tmp_exo48 = "";
+    let num_exo48 = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] != " ") {
+            tmp_exo48 += str[i];
+        } else {
+            num_exo48 = i;
+            console.log(num_exo48);
+            // i = str.length;
+        }
+    }
+    return tmp_exo48;
+}
+console.log("Exo48: \n" + Exo_48("hello a"));
+
+// Exo49 : Shuffle an array of strings.
+
+
+// Exo50 : Create a function that will receive n as argument and return an array of n random numbers from 1 to n. The numbers should be unique inside the array.
+function Exo_50 (n) {
+    let t_exo50 = [];
+    for (let i = 0; t_exo50.length < n; i++) {
+        let num_exo50 = Math.floor(Math.random() * (n - 0)) + 0;
+        if (!t_exo50.includes(num_exo50)) {
+            t_exo50.push(num_exo50);
+        }
+    }
+    return t_exo50;
+}
+console.log("Exo50: \n" + Exo_50(5));
+
+// Exo51 : Find the frequency of letters inside a string. Return the result as an array of arrays. Each subarray has 2 elements: letter and number of occurrences.
+
+
+// Exo52 : Calculate Fibonacci(500) with high precision (all digits).
+
+
+// Exo53 : Calculate 70! with high precision (all digits).
