@@ -106,7 +106,15 @@ for (let i = 1; i < t_exo13.length; i++) {
 console.log("Exo13: \n" + result_exo13);
 
 // Exo14 : Print the first 10 Fibonacci numbers without recursion.
-
+let result_exo14 = [];
+for (let i = 0; i < 10; i++) {
+    if (i <= 1) {
+        result_exo14.push(i);
+    } else {
+        result_exo14.push(result_exo14[i-2] + result_exo14[i-1]);
+    }
+}
+console.log("Exo14: \n" + result_exo14);
 
 // Exo15 : Create a function that will find the nth Fibonacci number using recursion.
 
@@ -118,7 +126,12 @@ function Exo_16 (num) {
 console.log("Exo16: \n" + Exo_16(0));
 
 // Exo17 : Calculate the sum of digits of a positive integer number.
-
+let result_exo17 = "";
+let num_exo17 = 12;
+for (let i = 0; i < num_exo17.length; i++) {
+    console.log(num_exo17[i]);
+}
+console.log("Exo17: \n" + result_exo17);
 
 // Exo18 : Print the first 100 prime numbers.
 
@@ -236,7 +249,26 @@ function Exo_31 (str) {
 console.log("Exo31: \n" + Exo_31("bonjour"));
 
 // Exo32 : Create a function that will capitalize the first letter of each word in a text.
+function Exo_32 (str) {
+    let tmp_exo32 = "";
+    let result_exo32 = "";
 
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == " ") {
+            tmp_exo32 = tmp_exo32[0].toUpperCase() + tmp_exo32.slice(1);
+            result_exo32 += tmp_exo32 + " ";
+            tmp_exo32 = "";
+        } else if (i == str.length-1) {
+            tmp_exo32 += str[i];
+            tmp_exo32 = tmp_exo32[0].toUpperCase() + tmp_exo32.slice(1);
+            result_exo32 += tmp_exo32;
+        } else {
+            tmp_exo32 += str[i];
+        }
+    }
+    return result_exo32;
+}
+console.log("Exo32: \n" + Exo_32("bonjour hello"));
 
 // Exo33 : Calculate the sum of numbers received in a comma delimited string.
 let result_exo33 = 0;
@@ -253,9 +285,19 @@ function Exo_34 (str) {
 console.log("Exo34: \n" + Exo_34("bonjour"));
 
 // Exo35 : Create a function to convert a CSV text to a “bi-dimensional” array.
-// function Exo_35 (params) {
-    
-// }
+function Exo_35 (str) {
+    let t_exo35 = [[], []];
+    let num_exo35 = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == ";") {
+            num_exo35 += 1;
+        } else {
+            t_exo35[num_exo35].push(str[i]);
+        }
+    }
+    return t_exo35;
+}
+console.log("Exo35: \n" + Exo_35("bonjour;hello"));
 
 // Exo36 : Create a function that converts a string to an array of characters.
 function Exo_36 (t) {
@@ -287,7 +329,25 @@ function Exo_38 (t) {
 console.log("Exo38: \n" + Exo_38(["98", "111", "110", "106", "111", "117", "114"]));
 
 // Exo39 : Implement the Caesar cypher.
-
+let str_exo39 = "ABC";
+let traductor_exo39;
+let result_exo39 = "";
+for (let i = 0; i < str_exo39.length; i++) {
+    if (str_exo39[i].charCodeAt()+3 == 91) {
+        traductor_exo39 = 62;
+        result_exo39 += String.fromCodePoint(traductor_exo39+3);
+    } else if (str_exo39[i].charCodeAt()+3 == 92) {
+        traductor_exo39 = 63;
+        result_exo39 += String.fromCodePoint(traductor_exo39+3);
+    } else if (str_exo39[i].charCodeAt()+3 == 93) {
+        traductor_exo39 = 64;
+        result_exo39 += String.fromCodePoint(traductor_exo39+3);
+    } else {
+        traductor_exo39 = str_exo39[i].charCodeAt()+3;
+        result_exo39 += String.fromCodePoint(traductor_exo39);
+    }
+}
+console.log("Exo39: \n" + result_exo39);
 
 // Exo40 : Implement the bubble sort algorithm for an array of numbers.
 let t_exo40 = [8, 1, 74, 3, 12];
