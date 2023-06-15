@@ -107,7 +107,7 @@ console.log("Exo13: \n" + result_exo13);
 
 // Exo14 : Print the first 10 Fibonacci numbers without recursion.
 let result_exo14 = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i <= 10; i++) {
     if (i <= 1) {
         result_exo14.push(i);
     } else {
@@ -117,24 +117,60 @@ for (let i = 0; i < 10; i++) {
 console.log("Exo14: \n" + result_exo14);
 
 // Exo15 : Create a function that will find the nth Fibonacci number using recursion.
-
+function Exo_15 (num) {
+    let result_exo15 = [];
+    for (let i = 0; i <= 10; i++) {
+        if (i <= 1) {
+            result_exo15.push(i);
+        } else {
+            result_exo15.push(result_exo15[i-2] + result_exo15[i-1]);
+        }
+    }
+    return result_exo15[num];
+}
+console.log("Exo15: \n" + Exo_15(10));
 
 // Exo16 : Create a function that will return a Boolean specifying if a number is prime.
 function Exo_16 (num) {
-    // return num % (num-1) == 0 || num % (num-1) == 0;
+    let flag = true;
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+            flag = false;
+        }
+    }
+    return flag;
 }
-console.log("Exo16: \n" + Exo_16(0));
+console.log("Exo16: \n" + Exo_16(11));
 
 // Exo17 : Calculate the sum of digits of a positive integer number.
-let result_exo17 = "";
+let result_exo17 = 0;
 let num_exo17 = 12;
-for (let i = 0; i < num_exo17.length; i++) {
-    console.log(num_exo17[i]);
+let tmp_exo17 = num_exo17.toString();
+for (let i = 0; i < tmp_exo17.length; i++) {
+    result_exo17 += parseInt(tmp_exo17[i]);
 }
 console.log("Exo17: \n" + result_exo17);
 
 // Exo18 : Print the first 100 prime numbers.
+function Exo_18 (num) {
+    // let flag = true;
+    // let prime_exo18 = "";
 
+    //     for (let i = 2; i < num; i++) {
+    //         if (num % i === 0) {
+    //             flag = false;
+    //             num ++;
+    //             i = 2;
+    //         } else if (flag && num < 100) {
+    //             prime_exo18 += num + " ";
+    //             num ++;
+    //             i = 2;
+    //         }
+    //     }
+
+    // return prime_exo18;
+}
+console.log("Exo18: \n" + Exo_18(3));
 
 // Exo19 : Create a function that will return in an array the first “p” prime numbers greater than “n”.
 
@@ -236,7 +272,12 @@ console.log("Exo27: \n" + Exo_27([1, 5, 9, 7, 4, 2, 7, 6, 2]));
 
 
 // Exo30 : Create a function that will add two positive numbers of indefinite size. The numbers are received as strings and the result should be also provided as string.
-
+function Exo_30 (num1, num2) {
+    let result_exo30 = "";
+    result_exo30 = parseInt(num1) + parseInt(num2);
+    return result_exo30.toString();
+}
+console.log("Exo30: \n" + Exo_30("10", "15"));
 
 // Exo31 : Create a function that will return the number of words in a text.
 function Exo_31 (str) {
@@ -351,7 +392,7 @@ console.log("Exo39: \n" + result_exo39);
 
 // Exo40 : Implement the bubble sort algorithm for an array of numbers.
 let t_exo40 = [8, 1, 74, 3, 12];
-for (let i = t_exo40.length-1; i > 0; i--) {
+for (let i = t_exo40.length; i > 0; i--) {
     for (let j = 0; j < i; j++) {
         if (t_exo40[j + 1] < t_exo40[j]) {
           let temp = t_exo40[j + 1];
@@ -411,23 +452,40 @@ console.log("Exo46: \n" + Exo_46([1, 8, 3, 9, 4]));
 
 // Exo48 : Create a function to return the longest word in a string.
 function Exo_48 (str) {
+    let words_exo48 = [];
     let tmp_exo48 = "";
-    let num_exo48 = 0;
     for (let i = 0; i < str.length; i++) {
-        if (str[i] != " ") {
+        if (str[i] == " " || i == str.length-1) {
             tmp_exo48 += str[i];
+            words_exo48.push(tmp_exo48);
+            tmp_exo48 = "";
         } else {
-            num_exo48 = i;
-            console.log(num_exo48);
-            // i = str.length;
+            tmp_exo48 += str[i];
         }
     }
-    return tmp_exo48;
+
+    let best_exo48 = words_exo48[0];
+    for (let i = 1; i < words_exo48.length; i++) {
+        if (words_exo48[i].length > best_exo48.length) {
+            best_exo48 = words_exo48[i];
+        }
+    }
+    return best_exo48;
 }
-console.log("Exo48: \n" + Exo_48("hello a"));
+console.log("Exo48: \n" + Exo_48("bbbb hello a ff"));
 
 // Exo49 : Shuffle an array of strings.
-
+let t_exo49 = ["hello", "bonjour", "good"];
+let result_exo49 = [];
+for (let i = 0; result_exo49.length < t_exo49.length; i++) {
+    let random_exo49 = t_exo49[Math.floor(Math.random() * (t_exo49.length - 0)) + 0];
+    if (!result_exo49.includes(random_exo49)) {
+        result_exo49.push(random_exo49);   
+    } else {
+        random_exo49 = t_exo49[Math.floor(Math.random() * (t_exo49.length - 0)) + 0];
+    }
+}
+console.log("Exo49: \n" + result_exo49);
 
 // Exo50 : Create a function that will receive n as argument and return an array of n random numbers from 1 to n. The numbers should be unique inside the array.
 function Exo_50 (n) {
