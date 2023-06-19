@@ -448,7 +448,14 @@ function Exo_46 (t) {
 console.log("Exo46: \n" + Exo_46([1, 8, 3, 9, 4]));
 
 // Exo47 : Deep copy a jagged array with numbers or other arrays in a new array.
-
+let result_exo47 = [];
+let t_exo47 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+for (let i = 0; i < t_exo47.length; i++) {
+    for (let y = 0; y < t_exo47[i].length; y++) {
+        result_exo47.push(t_exo47[i][y]);
+    }
+}
+console.log("Exo47: \n" + result_exo47);
 
 // Exo48 : Create a function to return the longest word in a string.
 function Exo_48 (str) {
@@ -504,6 +511,17 @@ console.log("Exo50: \n" + Exo_50(5));
 
 
 // Exo52 : Calculate Fibonacci(500) with high precision (all digits).
-
+function Exo_52 (num) {
+    let result_exo52 = [];
+    for (let i = 0; i <= num; i++) {
+        if (i <= 1) {
+            result_exo52.push(i);
+        } else {
+            result_exo52.push(result_exo52[i-2] + result_exo52[i-1]);
+        }
+    }
+    return result_exo52;
+}
+console.log("Exo52: \n" + Exo_52(500));
 
 // Exo53 : Calculate 70! with high precision (all digits).
